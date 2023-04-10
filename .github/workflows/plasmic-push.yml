@@ -40,5 +40,4 @@ jobs:
         if: ${{ steps.build.outputs.publish_dir }}
         with:
           branch: gh-pages
-          github_token: ${{ secrets.PLASM }}
           folder: ${{ steps.build.outputs.publish_dir }}
