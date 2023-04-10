@@ -40,4 +40,5 @@ jobs:
         if: ${{ steps.build.outputs.publish_dir }}
         with:
           branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           folder: ${{ steps.build.outputs.publish_dir }}
