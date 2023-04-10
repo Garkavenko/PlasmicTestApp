@@ -25,13 +25,13 @@
         },
         {
           "assetId": "tdxBvH2PqYqj7Lh7ivXHnR",
-          "type": "projectCss",
-          "checksum": "83b5b51e5dae181beb670a987cad6558"
+          "checksum": "4e5aec18b50daaed8d38c909e3dd7a76",
+          "type": "globalContexts"
         },
         {
           "assetId": "tdxBvH2PqYqj7Lh7ivXHnR",
-          "checksum": "4e5aec18b50daaed8d38c909e3dd7a76",
-          "type": "globalContexts"
+          "type": "projectCss",
+          "checksum": "83b5b51e5dae181beb670a987cad6558"
         }
       ],
       "codegenVersion": "0.0.1"
