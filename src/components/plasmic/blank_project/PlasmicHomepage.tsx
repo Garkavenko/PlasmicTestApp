@@ -32,6 +32,8 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import { StrapiCollection } from "@plasmicpkgs/plasmic-strapi"; // plasmic-import: 3PiAu_DqaPA/codeComponent
+import { StrapiField } from "@plasmicpkgs/plasmic-strapi"; // plasmic-import: Yal_C-reFIU/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -51,7 +53,9 @@ export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   section?: p.Flex<"section">;
   h1?: p.Flex<"h1">;
-  text?: p.Flex<"div">;
+  strapiCollection?: p.Flex<typeof StrapiCollection>;
+  freeBox?: p.Flex<"div">;
+  strapiField?: p.Flex<typeof StrapiField>;
 };
 
 export interface DefaultHomepageProps {
@@ -102,6 +106,7 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
+            projectcss.plasmic_tokens,
             sty.root
           )}
         >
@@ -124,34 +129,34 @@ function PlasmicHomepage__RenderFunc(props: {
             >
               {"Welcome to your first page."}
             </h1>
-            <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text
-              )}
+            <StrapiCollection
+              data-plasmic-name={"strapiCollection"}
+              data-plasmic-override={overrides.strapiCollection}
+              className={classNames("__wab_instance", sty.strapiCollection)}
+              filterField={"title" as const}
+              filterParameter={"$contains" as const}
+              filterValue={$ctx.query.id}
+              name={"contents" as const}
+              noAutoRepeat={false}
+              noLayout={false}
             >
-              <React.Fragment>
-                <React.Fragment>
-                  {
-                    "If you haven't already done so, go back and learn the basics by going through the Plasmic Levels tutorial.\n\nIt's always easier to start from examples! Add a new page using a template—do this from the list of pages in the top left (the gray + button).\n\nOr press the big blue + button to start dragging items into this page.\n\nIntegrate this project into your codebase—press the "
-                  }
-                </React.Fragment>
-                <span
-                  className={"plasmic_default__all plasmic_default__span"}
-                  style={{ fontWeight: 700 }}
-                >
-                  {"Code"}
-                </span>
-                <React.Fragment>
-                  {
-                    " button in the top right and follow the quickstart instructions.\n\nJoin our Slack community (icon in bottom left) for help any time."
-                  }
-                </React.Fragment>
-              </React.Fragment>
-            </div>
+              <ph.DataCtxReader>
+                {$ctx => (
+                  <div
+                    data-plasmic-name={"freeBox"}
+                    data-plasmic-override={overrides.freeBox}
+                    className={classNames(projectcss.all, sty.freeBox)}
+                  >
+                    <StrapiField
+                      data-plasmic-name={"strapiField"}
+                      data-plasmic-override={overrides.strapiField}
+                      className={classNames("__wab_instance", sty.strapiField)}
+                      path={"title" as const}
+                    />
+                  </div>
+                )}
+              </ph.DataCtxReader>
+            </StrapiCollection>
           </p.Stack>
         </div>
       </div>
@@ -160,10 +165,12 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "h1", "text"],
-  section: ["section", "h1", "text"],
+  root: ["root", "section", "h1", "strapiCollection", "freeBox", "strapiField"],
+  section: ["section", "h1", "strapiCollection", "freeBox", "strapiField"],
   h1: ["h1"],
-  text: ["text"]
+  strapiCollection: ["strapiCollection", "freeBox", "strapiField"],
+  freeBox: ["freeBox", "strapiField"],
+  strapiField: ["strapiField"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -172,7 +179,9 @@ type NodeDefaultElementType = {
   root: "div";
   section: "section";
   h1: "h1";
-  text: "div";
+  strapiCollection: typeof StrapiCollection;
+  freeBox: "div";
+  strapiField: typeof StrapiField;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -237,7 +246,9 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
-    text: makeNodeComponent("text"),
+    strapiCollection: makeNodeComponent("strapiCollection"),
+    freeBox: makeNodeComponent("freeBox"),
+    strapiField: makeNodeComponent("strapiField"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

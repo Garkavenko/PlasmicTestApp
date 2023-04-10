@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "files",
@@ -45,7 +45,7 @@
       "icons": [],
       "images": [],
       "indirect": false,
-      "globalContextsFilePath": "",
+      "globalContextsFilePath": "plasmic/blank_project/PlasmicGlobalContextsProvider.tsx",
       "codeComponents": [
         {
           "id": "OaNh1x-0I_",
@@ -56,6 +56,35 @@
           "id": "IVizItW0tf",
           "name": "Fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        }
+      ]
+    },
+    {
+      "projectId": "pnayxrZQDQNLaMhqWY9Kua",
+      "projectApiToken": "LXmHVLWuAkPo1ZrKx4YE5w7Z6OP5gcGGU72DDYQqACih1ZhiG1HWnGFEXaShFtn4j9bsii6QofRTjOjoUb4A",
+      "projectName": "plasmic-strapi",
+      "version": "1.13.0",
+      "cssFilePath": "plasmic/plasmic_strapi/plasmic_plasmic_strapi.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "plasmic/plasmic_strapi/PlasmicGlobalContextsProvider.tsx",
+      "codeComponents": [
+        {
+          "id": "3PiAu_DqaPA",
+          "name": "StrapiCollection",
+          "componentImportPath": "@plasmicpkgs/plasmic-strapi"
+        },
+        {
+          "id": "Yal_C-reFIU",
+          "name": "StrapiField",
+          "componentImportPath": "@plasmicpkgs/plasmic-strapi"
+        },
+        {
+          "id": "Nz3wPi974V7",
+          "name": "StrapiCredentialsProvider",
+          "componentImportPath": "@plasmicpkgs/plasmic-strapi"
         }
       ]
     }
@@ -71,6 +100,6 @@
     ]
   },
   "wrapPagesWithGlobalContexts": true,
-  "cliVersion": "0.1.249",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.249/dist/plasmic.schema.json"
+  "cliVersion": "0.1.256",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.256/dist/plasmic.schema.json"
 }
