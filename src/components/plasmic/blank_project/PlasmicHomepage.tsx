@@ -127,7 +127,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 sty.h1
               )}
             >
-              {"Welcome to your first page!123"}
+              {"Welcome to your first page!1234"}
             </h1>
             <StrapiCollection
               data-plasmic-name={"strapiCollection"}
